@@ -1,14 +1,14 @@
 source "https://rubygems.org"
 
-ruby "3.1.3"
+ruby "3.1.2"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-gem "rails", "~> 6.1.4"
-gem "devise"
+gem "rails", "~> 7.0"
+gem "devise", "4.8.1"
 gem "bootstrap-sass", "3.4.1"
 gem "puma", "~> 4.3"
 gem "sass-rails", "~> 5.0"
