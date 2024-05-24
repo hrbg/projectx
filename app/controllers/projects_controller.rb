@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(projects_params)
     if @project.save
       flash[:success] = "Project created!"
-      redirect_to @project
+      redirect_to project_route
     else
       flash.now[:error] = @project.errors.full_messages
       render :new
@@ -80,5 +80,9 @@ class ProjectsController < ApplicationController
 
   def projects_params
     params.require(:project).permit(:title, :status, :parent_id)
+  end
+
+  def project_route
+    @project.parent.nil? ? @project : @project.parent
   end
 end
